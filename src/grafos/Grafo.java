@@ -24,10 +24,12 @@ public class Grafo {
 
     Map<Vertice, List<Aresta>> map;
     List<Vertice> fila;
+    Integer tempo;
 
     public Grafo() {
 
         this.map = new LinkedHashMap<>();
+        
 
     }
 
@@ -102,4 +104,13 @@ public class Grafo {
         this.map = map;
     }
 
+    public Integer getTempo() {
+        return tempo;
+    }
+
+    public void setTempo(Integer tempo) {
+        this.tempo = tempo;
+    }
+
+    
 }
