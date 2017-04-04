@@ -17,9 +17,9 @@ public class Vertice {
     String cor;
     Double distancia;
     Vertice antecessor;
-    
-    
-            
+    int tempo;
+
+        
 
     public Vertice(String nome) {
         this.nome = nome;
@@ -59,7 +59,16 @@ public class Vertice {
         this.antecessor = antecessor;
     }
     
+    public int getTempo() {
+        return tempo;
+    }
+
+    public void setTempo(int tempo) {
+        this.tempo = tempo;
+    }
     
+    
+        
     
     
 }

@@ -56,4 +56,12 @@ public class Buscas {
         }
     }
     
+    public static void IniciaBuscaProfundidade(Grafo grafo, Vertice inicial){
+        for(Vertice u: grafo.map.keySet()){
+            u.setCor("Branco");
+            u.antecessor = null;
+            u.tempo = 0;
+        }
+    }
+    
 }
