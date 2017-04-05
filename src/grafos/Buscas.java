@@ -17,7 +17,7 @@ import static jdk.nashorn.internal.objects.Global.Infinity;
  * @author Mateus
  */
 public class Buscas {
-
+    
     public static void IniciaBuscaLargura(Grafo grafo, Vertice inicial) {
         for (Vertice u : grafo.map.keySet()) {
             if (!u.equals(inicial)) {
@@ -31,9 +31,9 @@ public class Buscas {
         inicial.setAntecessor(null);
         grafo.fila = new ArrayList<>();
         grafo.fila.add(inicial);
-
+        
     }
-
+    
     public static void BuscaLargura(Grafo grafo) {
         while (!grafo.fila.isEmpty()) {
             Vertice u = grafo.fila.remove(0);
@@ -43,9 +43,9 @@ public class Buscas {
                 System.out.println("adjascente: " + v.nome + "  cor antes: " + v.cor);
                 if (v.cor.equals("Branco")) {
                     v.setCor("Cinza");
-
+                    
                     System.out.println("cor depois: " + v.cor);
-
+                    
                     v.distancia = u.distancia + 1;
                     v.antecessor = u;
                     grafo.fila.add(v);
@@ -55,31 +55,40 @@ public class Buscas {
             System.out.println("pai  " + u.nome + "  cor: " + u.cor);
         }
     }
-
+    
     public static void IniciaBuscaProfundidade(Grafo grafo) {
         for (Vertice u : grafo.map.keySet()) {
             u.setCor("Branco");
             u.antecessor = null;
-           grafo.setTempo(0); 
+            grafo.setTempo(0);            
+        }
+        for(Vertice u: grafo.map.keySet()){
+            if(u.cor.equals("Branco")){
+                
+                BuscaProfundidade(grafo, u);
+            }
         }
     }
-
+    
     public static void BuscaProfundidade(Grafo grafo, Vertice vertice) {
-        grafo.tempo +=1;
-        vertice.setDistancia((double)grafo.tempo);
+        grafo.tempo += 1;
+        vertice.setTempoDescoberto((Integer) grafo.tempo);
+        System.out.println("\ndescoberto vertice: "+ vertice.nome + "  cor:  "+ vertice.cor + " Tempo descoberto: " + vertice.getTempoDescoberto());
         vertice.setCor("Cinza");
+        System.out.println("\n sou vertice: "+ vertice.nome + " me pintei cor:  "+ vertice.cor);
         for (Aresta ar : grafo.map.get(vertice)) {
-                Vertice v = ar.destino;
-                if(vertice.cor.equals("Branco")){
-                    v.antecessor = vertice;
-                    BuscaProfundidade(grafo, v);
-                }
-                
+            Vertice v = ar.destino;
+            if (v.cor.equals("Branco")) {
+                v.antecessor = vertice;
+                BuscaProfundidade(grafo, v);
+            }
+            
         }
+        
         vertice.setCor("Preto");
         grafo.setTempo(grafo.tempo + 1);
-        
-        
+        vertice.setTempoFinalizado(grafo.getTempo());
+        System.out.println("\n sou vertice: "+ vertice.nome + " finalizei :  "+ vertice.cor + " Tempo finalizado: "+ vertice.tempoFinalizado);
     }
-
+    
 }

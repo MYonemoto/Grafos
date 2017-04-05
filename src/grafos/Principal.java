@@ -5,7 +5,7 @@
  */
 package grafos;
 
-import static grafos.Buscas.IniciaBuscaLargura;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 public class Principal {
 
     public static void main(String[] args) {
-
+        Buscas busca;
         
         Grafo grafo = new Grafo();
         
@@ -38,8 +38,10 @@ public class Principal {
         //grafo.insereVertice(grafo, h);
 
         grafo.InsereArestaDiretiva(grafo, a, new Aresta(b));
-        grafo.InsereArestaDiretiva(grafo, b, new Aresta(c));
-        grafo.InsereArestaDiretiva(grafo, c, new Aresta(d));
+        grafo.InsereArestaDiretiva(grafo, a, new Aresta(c));
+        grafo.InsereArestaDiretiva(grafo, b, new Aresta(d));
+        grafo.InsereArestaDiretiva(grafo, c, new Aresta(b));
+        grafo.InsereArestaDiretiva(grafo, d, new Aresta(c));
         //grafo.InsereArestaDiretiva(grafo, a, new Aresta(e));
         //grafo.InsereArestaDiretiva(grafo, e, new Aresta(d));
         //grafo.InsereArestaDiretiva(grafo, b, new Aresta(a));
@@ -51,13 +53,17 @@ public class Principal {
         grafo.printaGrafo(grafo);
         System.out.println();
         
-        IniciaBuscaLargura(grafo, a);
+        Buscas.IniciaBuscaProfundidade(grafo);
+        
+        //IniciaBuscaLargura(grafo, a);
         
         
        // grafo.RemoveVertice(grafo, a);
         //grafo.RemoveTodasArestas(grafo, a);
-        grafo.printaCorGrafo(grafo);
-        Buscas.BuscaLargura(grafo);
+        //Buscas.BuscaLargura(grafo);
+        
+        
+        
         
         
 

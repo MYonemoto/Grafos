@@ -17,7 +17,8 @@ public class Vertice {
     String cor;
     Double distancia;
     Vertice antecessor;
-    int tempo;
+    Integer tempoDescoberto;
+    Integer tempoFinalizado;
 
         
 
@@ -58,14 +59,24 @@ public class Vertice {
     public void setAntecessor(Vertice antecessor) {
         this.antecessor = antecessor;
     }
-    
-    public int getTempo() {
-        return tempo;
+
+    public Integer getTempoDescoberto() {
+        return tempoDescoberto;
     }
 
-    public void setTempo(int tempo) {
-        this.tempo = tempo;
+    public void setTempoDescoberto(Integer tempoDescoberto) {
+        this.tempoDescoberto = tempoDescoberto;
     }
+
+    public Integer getTempoFinalizado() {
+        return tempoFinalizado;
+    }
+
+    public void setTempoFinalizado(Integer tempoFinalizado) {
+        this.tempoFinalizado = tempoFinalizado;
+    }
+    
+   
     
     
         
