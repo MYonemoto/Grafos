@@ -5,7 +5,6 @@
  */
 package grafos;
 
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,10 +16,9 @@ import java.util.List;
 public class Principal {
 
     public static void main(String[] args) {
-        Buscas busca;
-        
+
         Grafo grafo = new Grafo();
-        
+
         Vertice a = new Vertice("A");
         Vertice b = new Vertice("B");
         Vertice c = new Vertice("C");
@@ -49,35 +47,14 @@ public class Principal {
         //grafo.InsereArestaNaoDiretiva(grafo, d, new Aresta(f));
         //qgrafo.InsereArestaNaoDiretiva(grafo, d, new Aresta(a));
         //grafo.InsereArestaNaoDiretiva(grafo, f, new Aresta(a));
-        
+
         grafo.printaGrafo(grafo);
         System.out.println();
-        
+
         Buscas.IniciaBuscaProfundidade(grafo);
-        
-        //IniciaBuscaLargura(grafo, a);
-        
-        
-       // grafo.RemoveVertice(grafo, a);
-        //grafo.RemoveTodasArestas(grafo, a);
+        //Buscas.IniciaBuscaLargura(grafo, a);
+
         //Buscas.BuscaLargura(grafo);
-        
-        
-        
-        
-        
 
-        //grafo.map.put("A", ares);
-
-        /* for (Vertice v : grafo.vertices) {
-            System.out.println("vertice : " + v.nome);
-        }
-        Aresta ar = new Aresta(b);
-        exemplo.get("A").add(ar);
-        ar = new Aresta(c);
-        exemplo.get("A").add(ar);
-
-        
-        }*/
     }
 }
