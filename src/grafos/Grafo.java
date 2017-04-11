@@ -23,7 +23,10 @@ import java.util.logging.Filter;
 public class Grafo {
 
     Map<Vertice, List<Aresta>> map;
-    List<Vertice> fila;
+    List<Vertice> filaBuscaLargura;
+    List<Vertice> listaTopologica;
+
+    
     Integer tempo;
 
     public Grafo() {
@@ -112,5 +115,11 @@ public class Grafo {
         this.tempo = tempo;
     }
 
-    
+    public List<Vertice> getListaTopologica() {
+        return listaTopologica;
+    }
+
+    public void setListaTopologica(List<Vertice> listaTopologica) {
+        this.listaTopologica = listaTopologica;
+    }
 }

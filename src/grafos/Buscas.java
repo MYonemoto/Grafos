@@ -6,6 +6,8 @@
 package grafos;
 
 //import com.sun.javafx.scene.control.skin.VirtualFlow;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
+import com.sun.javafx.scene.control.skin.VirtualFlow.ArrayLinkedList;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,14 +31,14 @@ public class Buscas {
         inicial.setCor("Cinza");
         inicial.setDistancia(0.0);
         inicial.setAntecessor(null);
-        grafo.fila = new ArrayList<>();
-        grafo.fila.add(inicial);
+        grafo.filaBuscaLargura = new ArrayList<>();
+        grafo.filaBuscaLargura.add(inicial);
         
     }
     
     public static void BuscaLargura(Grafo grafo) {
-        while (!grafo.fila.isEmpty()) {
-            Vertice u = grafo.fila.remove(0);
+        while (!grafo.filaBuscaLargura.isEmpty()) {
+            Vertice u = grafo.filaBuscaLargura.remove(0);
             System.out.println("Pai: " + u.nome);
             for (Aresta ar : grafo.map.get(u)) {
                 Vertice v = ar.destino;
@@ -48,7 +50,7 @@ public class Buscas {
                     
                     v.distancia = u.distancia + 1;
                     v.antecessor = u;
-                    grafo.fila.add(v);
+                    grafo.filaBuscaLargura.add(v);
                 }
             }
             u.setCor("Preto");
@@ -73,9 +75,9 @@ public class Buscas {
     public static void BuscaProfundidade(Grafo grafo, Vertice vertice) {
         grafo.tempo += 1;
         vertice.setTempoDescoberto((Integer) grafo.tempo);
-        System.out.println("\ndescoberto vertice: "+ vertice.nome + "  cor:  "+ vertice.cor + " Tempo descoberto: " + vertice.getTempoDescoberto());
+//        System.out.println("\ndescoberto vertice: "+ vertice.nome + "  cor:  "+ vertice.cor + " Tempo descoberto: " + vertice.getTempoDescoberto());
         vertice.setCor("Cinza");
-        System.out.println("\n sou vertice: "+ vertice.nome + " me pintei cor:  "+ vertice.cor);
+//        System.out.println("\n sou vertice: "+ vertice.nome + " me pintei cor:  "+ vertice.cor);
         for (Aresta ar : grafo.map.get(vertice)) {
             Vertice v = ar.destino;
             if (v.cor.equals("Branco")) {
@@ -88,7 +90,16 @@ public class Buscas {
         vertice.setCor("Preto");
         grafo.setTempo(grafo.tempo + 1);
         vertice.setTempoFinalizado(grafo.getTempo());
-        System.out.println("\n sou vertice: "+ vertice.nome + " finalizei :  "+ vertice.cor + " Tempo finalizado: "+ vertice.tempoFinalizado);
+        grafo.listaTopologica.add(0, vertice);
+//        System.out.println("\n sou vertice: "+ vertice.nome + " finalizei :  "+ vertice.cor + " Tempo finalizado: "+ vertice.tempoFinalizado);
+    }
+    
+    public static List<Vertice> OrdenacaoTopologica(Grafo grafo){
+        grafo.listaTopologica = new ArrayList<>();
+        IniciaBuscaProfundidade(grafo);
+        
+        return grafo.listaTopologica;
+        
     }
     
 }
