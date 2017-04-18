@@ -25,10 +25,19 @@ public class Grafo {
     Map<Vertice, List<Aresta>> map;
     List<Vertice> filaBuscaLargura;
     List<Vertice> listaTopologica;
-
+    int [][] matriz;
     
     Integer tempo;
 
+    public Grafo(int vertices){
+       matriz = new int [vertices][vertices];
+        for (int i = 0; i < vertices; i++) {
+            for (int j = 0; j < vertices; j++) {
+                matriz[i][j] = 0;
+            }
+        }
+    }
+    
     public Grafo() {
 
         this.map = new LinkedHashMap<>();
@@ -57,6 +66,10 @@ public class Grafo {
         grafo.map.get(aresta.destino).add(new Aresta(verticeOrigem));
     }
 
+    public void insereArestaDiretivaMatriz(Grafo grafo, int origem, int destino){
+        grafo.matriz[origem][destino] = 1;
+    }
+    
     public void RemoveArestaDiretiva(Grafo grafo, Vertice vOrigem, Vertice vDestino) {
         for (Iterator<Aresta> it = grafo.map.get(vOrigem).iterator(); it.hasNext();) {
             Aresta a = it.next();
@@ -87,6 +100,16 @@ public class Grafo {
             System.out.println();
         }
 
+    }
+    
+    public void printaMatriz(Grafo grafo){
+        for (int i = 0; i < grafo.matriz.length; i++) {
+            System.out.print(i+"  ");
+            for (int j = 0; j < grafo.matriz.length; j++) {
+                System.out.print("{ "+grafo.matriz[i][j]+" },  ");
+            }
+            System.out.println();
+        }
     }
     
     public void printaCorGrafo(Grafo grafo) {
