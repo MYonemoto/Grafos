@@ -18,50 +18,58 @@ public class Principal {
     public static void main(String[] args) {
 
         
-        Grafo grafo = new Grafo(3);
-        
-        grafo.insereArestaDiretivaMatriz(grafo, 0, 1);
-        grafo.insereArestaDiretivaMatriz(grafo, 1, 2);
-        grafo.printaMatriz(grafo);
-//        Grafo grafo = new Grafo();
+       
+        Buscas busca = new Buscas();
+//        Grafo grafo = new Grafo(6);
+//        
+//        grafo.insereArestaDiretivaMatriz(grafo, 0, 1);
+//        grafo.insereArestaDiretivaMatriz(grafo, 1, 2);
+//        grafo.insereArestaDiretivaMatriz(grafo, 2, 3);
+//        grafo.insereArestaDiretivaMatriz(grafo, 3, 1);
+//        grafo.insereArestaDiretivaMatriz(grafo, 1, 4);
+//        grafo.printaMatriz(grafo);
 
-//        Vertice camisa = new Vertice("Camisa");
-//        Vertice gravata = new Vertice("Gravata");
-//        Vertice paleto = new Vertice("Paleto");
-//        Vertice cinto = new Vertice("Cinto");
-//        Vertice relogio = new Vertice("Relogio");
-//        Vertice cueca = new Vertice("Cueca");
-//        Vertice calca = new Vertice("Calca");
-//        Vertice sapato = new Vertice("Sapato");
-//        Vertice meia = new Vertice("Meia");
-//
-//        grafo.insereVertice(grafo, camisa);
-//        grafo.insereVertice(grafo, gravata);
-//        grafo.insereVertice(grafo, paleto);
-//        grafo.insereVertice(grafo, cinto);
-//        grafo.insereVertice(grafo, relogio);
-//        grafo.insereVertice(grafo, cueca);
-//        grafo.insereVertice(grafo, calca);
-//        grafo.insereVertice(grafo, sapato);
-//        grafo.insereVertice(grafo, meia);
-//        grafo.insereVertice(grafo, camisa);
-//        grafo.insereVertice(grafo, gravata);
-//        grafo.insereVertice(grafo, paleto);
-//        grafo.insereVertice(grafo, cinto);
-//        grafo.insereVertice(grafo, relogio);
-//        grafo.insereVertice(grafo, cueca);
-//        grafo.insereVertice(grafo, calca);
-//        grafo.insereVertice(grafo, sapato);
-//        grafo.insereVertice(grafo, meia);
-//        grafo.InsereArestaDiretiva(grafo, camisa, new Aresta(gravata));
-//        grafo.InsereArestaDiretiva(grafo, camisa, new Aresta(cinto));
-//        grafo.InsereArestaDiretiva(grafo, gravata, new Aresta(paleto));
-//        grafo.InsereArestaDiretiva(grafo, calca, new Aresta(cinto));
-//        grafo.InsereArestaDiretiva(grafo, cueca, new Aresta(calca));
-//        grafo.InsereArestaDiretiva(grafo, cueca, new Aresta(sapato));
-//        grafo.InsereArestaDiretiva(grafo, cinto, new Aresta(paleto));
-//        grafo.InsereArestaDiretiva(grafo, meia, new Aresta(sapato));
-//        grafo.InsereArestaNaoDiretiva(grafo, calca, new Aresta(sapato));
+        Grafo grafo = new Grafo();
+
+        Vertice camisa = new Vertice("Camisa");
+        Vertice gravata = new Vertice("Gravata");
+        Vertice paleto = new Vertice("Paleto");
+        Vertice cinto = new Vertice("Cinto");
+        Vertice relogio = new Vertice("Relogio");
+        Vertice cueca = new Vertice("Cueca");
+        Vertice calca = new Vertice("Calca");
+        Vertice sapato = new Vertice("Sapato");
+        Vertice meia = new Vertice("Meia");
+
+        grafo.insereVertice(grafo, camisa);
+        grafo.insereVertice(grafo, gravata);
+        grafo.insereVertice(grafo, paleto);
+        grafo.insereVertice(grafo, cinto);
+        grafo.insereVertice(grafo, relogio);
+        grafo.insereVertice(grafo, cueca);
+        grafo.insereVertice(grafo, calca);
+        grafo.insereVertice(grafo, sapato);
+        grafo.insereVertice(grafo, meia);
+        grafo.insereVertice(grafo, camisa);
+        grafo.insereVertice(grafo, gravata);
+        grafo.insereVertice(grafo, paleto);
+        grafo.insereVertice(grafo, cinto);
+        grafo.insereVertice(grafo, relogio);
+        grafo.insereVertice(grafo, cueca);
+        grafo.insereVertice(grafo, calca);
+        grafo.insereVertice(grafo, sapato);
+        grafo.insereVertice(grafo, meia);
+        grafo.InsereArestaDiretiva(grafo, camisa, new Aresta(gravata));
+        grafo.InsereArestaDiretiva(grafo, camisa, new Aresta(cinto));
+//        grafo.InsereArestaDiretiva(grafo, cinto, new Aresta(camisa));
+        grafo.InsereArestaDiretiva(grafo, gravata, new Aresta(paleto));
+        grafo.InsereArestaDiretiva(grafo, calca, new Aresta(cinto));
+        grafo.InsereArestaDiretiva(grafo, cueca, new Aresta(calca));
+        grafo.InsereArestaDiretiva(grafo, cueca, new Aresta(sapato));
+        grafo.InsereArestaDiretiva(grafo, cinto, new Aresta(paleto));
+        grafo.InsereArestaDiretiva(grafo, meia, new Aresta(sapato));
+        grafo.InsereArestaDiretiva(grafo, calca, new Aresta(sapato));
+//        grafo.InsereArestaDiretiva(grafo, paleto, new Aresta(camisa));
 //        grafo.InsereArestaNaoDiretiva(grafo, d, new Aresta(f));
         //qgrafo.InsereArestaNaoDiretiva(grafo, d, new Aresta(a));
         //grafo.InsereArestaNaoDiretiva(grafo, f, new Aresta(a));
@@ -89,15 +97,17 @@ public class Principal {
 //        grafo.InsereArestaDiretiva(grafo, e, new Aresta (c));
 //        grafo.InsereArestaDiretiva(grafo, f, new Aresta (f));
 //        
-//        grafo.printaGrafo(grafo);
+        grafo.printaGrafo(grafo);
 //        System.out.println();
 //
-//        for (Vertice v : Buscas.OrdenacaoTopologica(grafo)) {
-//            System.out.println("nome: " + v.nome + " tempo: " + v.tempoDescoberto + " / " + v.tempoFinalizado);
-//        }
+    List<Vertice> lista = busca.OrdenacaoTopologica(grafo);
+    if(lista != null){
+    for (Vertice v : lista) {
+            System.out.println("\nNome: " + v.nome + " Tempo: " + v.tempoDescoberto + " / " + v.tempoFinalizado);
+        }
+    }
 //        Buscas.IniciaBuscaProfundidade(grafo);
-        //Buscas.IniciaBuscaLargura(grafo, a);
-
-        //Buscas.BuscaLargura(grafo);
+//        Buscas.IniciaBuscaLargura(grafo, camisa);
+//        Buscas.BuscaLargura(grafo);
     }
 }

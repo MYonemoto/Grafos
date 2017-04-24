@@ -24,8 +24,8 @@ public class Grafo {
 
     Map<Vertice, List<Aresta>> map;
     List<Vertice> filaBuscaLargura;
-    List<Vertice> listaTopologica;
     int [][] matriz;
+    boolean isCiclico;
     
     Integer tempo;
 
@@ -138,11 +138,12 @@ public class Grafo {
         this.tempo = tempo;
     }
 
-    public List<Vertice> getListaTopologica() {
-        return listaTopologica;
+    public boolean isIsCiclico() {
+        return isCiclico;
     }
 
-    public void setListaTopologica(List<Vertice> listaTopologica) {
-        this.listaTopologica = listaTopologica;
+    public void setIsCiclico(boolean isCiclico) {
+        this.isCiclico = isCiclico;
     }
+
 }
