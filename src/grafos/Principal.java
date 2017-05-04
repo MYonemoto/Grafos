@@ -61,7 +61,7 @@ public class Principal {
         grafo.insereVertice(grafo, meia);
         grafo.InsereArestaDiretiva(grafo, camisa, new Aresta(gravata));
         grafo.InsereArestaDiretiva(grafo, camisa, new Aresta(cinto));
-//        grafo.InsereArestaDiretiva(grafo, cinto, new Aresta(camisa));
+        grafo.InsereArestaDiretiva(grafo, cinto, new Aresta(camisa));
         grafo.InsereArestaDiretiva(grafo, gravata, new Aresta(paleto));
         grafo.InsereArestaDiretiva(grafo, calca, new Aresta(cinto));
         grafo.InsereArestaDiretiva(grafo, cueca, new Aresta(calca));
@@ -69,10 +69,19 @@ public class Principal {
         grafo.InsereArestaDiretiva(grafo, cinto, new Aresta(paleto));
         grafo.InsereArestaDiretiva(grafo, meia, new Aresta(sapato));
         grafo.InsereArestaDiretiva(grafo, calca, new Aresta(sapato));
-//        grafo.InsereArestaDiretiva(grafo, paleto, new Aresta(camisa));
+        grafo.InsereArestaDiretiva(grafo, paleto, new Aresta(camisa));
 //        grafo.InsereArestaNaoDiretiva(grafo, d, new Aresta(f));
         //qgrafo.InsereArestaNaoDiretiva(grafo, d, new Aresta(a));
         //grafo.InsereArestaNaoDiretiva(grafo, f, new Aresta(a));
+//        grafo.RemoveVertice(grafo, camisa);
+//        grafo.RemoveVertice(grafo, gravata);
+//        grafo.RemoveVertice(grafo, paleto);
+//        grafo.RemoveVertice(grafo, cinto);
+//        grafo.RemoveVertice(grafo, relogio);
+//        grafo.RemoveVertice(grafo, cueca);
+//        grafo.RemoveVertice(grafo, calca);
+//        grafo.RemoveVertice(grafo, sapato);
+//        grafo.RemoveVertice(grafo, meia);
         
 //        Vertice a = new Vertice("A");
 //        Vertice b = new Vertice("B");
