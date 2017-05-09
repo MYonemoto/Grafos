@@ -6,8 +6,6 @@
 package grafos;
 
 //import com.sun.javafx.scene.control.skin.VirtualFlow;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
-import com.sun.javafx.scene.control.skin.VirtualFlow.ArrayLinkedList;
 import java.awt.Color;
 import static java.lang.System.exit;
 import java.util.ArrayList;
