@@ -104,13 +104,14 @@ public class Grafo {
     
     public void printaMatriz(Grafo grafo){
         for (int i = 0; i < grafo.matriz.length; i++) {
-            System.out.print(i+"  ");
+            System.out.print(i+ " \t");
             for (int j = 0; j < grafo.matriz.length; j++) {
-                System.out.print("{ "+grafo.matriz[i][j]+" },  ");
+                System.out.print("\t{ "+grafo.matriz[i][j]+" }\t");
             }
             System.out.println();
         }
     }
+    
     
     public void printaCorGrafo(Grafo grafo) {
         for (Vertice v : grafo.getMap().keySet()) {

@@ -19,14 +19,30 @@ public class Principal {
     public static void main(String[] args) {
 
         List<String> texto = Read.abrirArquivo("HDGraph20_20.txt");
-       
-        
-        String [] linha  = texto.get(1).split(" ");
+
+        String[] linha = texto.get(0).split(" ");
         System.out.println(Arrays.toString(linha));
-        
-        String b = linha[2];
-        System.out.println(b);
-        
+        Grafo matriz = new Grafo(Integer.parseInt(linha[0]));
+
+        for (int i = 0 ; i <  20; i++) {
+            linha = texto.get(i+1).split(" ");
+
+            for (int k = 0; k < linha.length; k++) {
+                Integer n;
+                String s = linha[k];
+                if(s.equals("")){
+                    n = 20;
+                }else{
+                 n = Integer.parseInt(linha[k]);   
+                }
+                 
+                matriz.matriz[i][k] = n;
+
+            }
+        }
+
+        matriz.printaMatriz(matriz);
+
         Buscas busca = new Buscas();
 //        Grafo grafo = new Grafo(6);
 //        
