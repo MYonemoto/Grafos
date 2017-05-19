@@ -24,24 +24,23 @@ public class Grafo {
 
     Map<Vertice, List<Aresta>> map;
     List<Vertice> filaBuscaLargura;
-    int [][] matriz;
+    int[][] matriz;
     boolean isCiclico;
-    
+
     Integer tempo;
 
-    public Grafo(int vertices){
-       matriz = new int [vertices][vertices];
+    public Grafo(int vertices) {
+        matriz = new int[vertices][vertices];
         for (int i = 0; i < vertices; i++) {
             for (int j = 0; j < vertices; j++) {
                 matriz[i][j] = 0;
             }
         }
     }
-    
+
     public Grafo() {
 
         this.map = new LinkedHashMap<>();
-        
 
     }
 
@@ -66,10 +65,10 @@ public class Grafo {
         grafo.map.get(aresta.destino).add(new Aresta(verticeOrigem));
     }
 
-    public void insereArestaDiretivaMatriz(Grafo grafo, int origem, int destino){
+    public void insereArestaDiretivaMatriz(Grafo grafo, int origem, int destino) {
         grafo.matriz[origem][destino] = 1;
     }
-    
+
     public void RemoveArestaDiretiva(Grafo grafo, Vertice vOrigem, Vertice vDestino) {
         for (Iterator<Aresta> it = grafo.map.get(vOrigem).iterator(); it.hasNext();) {
             Aresta a = it.next();
@@ -90,6 +89,8 @@ public class Grafo {
             RemoveArestaDiretiva(grafo, v, destino);
         }
     }
+    
+   
 
     public void printaGrafo(Grafo grafo) {
         for (Vertice v : grafo.getMap().keySet()) {
@@ -101,28 +102,28 @@ public class Grafo {
         }
 
     }
-    
-    public void printaMatriz(Grafo grafo){
+
+    public void printaMatriz(Grafo grafo) {
         for (int i = 0; i < grafo.matriz.length; i++) {
-            System.out.print(i+ " \t");
+            System.out.print(i + " \t");
             for (int j = 0; j < grafo.matriz.length; j++) {
-                System.out.print("\t{ "+grafo.matriz[i][j]+" }\t");
+                System.out.print("\t{ " + grafo.matriz[i][j] + " }\t");
             }
             System.out.println();
         }
     }
-    
-    
+
     public void printaCorGrafo(Grafo grafo) {
         for (Vertice v : grafo.getMap().keySet()) {
             System.out.print("vertice : " + v.nome + "  ");
-            System.out.println("cor: " + v.cor );
-            
+            System.out.println("cor: " + v.cor);
+
         }
 
     }
-   
 
+   
+    
     public Map<Vertice, List<Aresta>> getMap() {
         return map;
     }

@@ -7,6 +7,7 @@ package grafos;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,32 +19,20 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        List<String> texto = Read.abrirArquivo("HDGraph20_20.txt");
+        String arquivo = "HDGraph20_20.txt";
+        ArrayList<Grafo> grafos = Read.CarregaGrafosLista(arquivo);
+        System.out.println("grafos: " + grafos.size());
 
-        String[] linha = texto.get(0).split(" ");
-        System.out.println(Arrays.toString(linha));
-        Grafo matriz = new Grafo(Integer.parseInt(linha[0]));
-
-        for (int i = 0 ; i <  20; i++) {
-            linha = texto.get(i+1).split(" ");
-
-            for (int k = 0; k < linha.length; k++) {
-                Integer n;
-                String s = linha[k];
-                if(s.equals("")){
-                    n = 20;
-                }else{
-                 n = Integer.parseInt(linha[k]);   
-                }
-                 
-                matriz.matriz[i][k] = n;
-
-            }
+        for (Grafo g : grafos) {
+            g.printaGrafo(g);
+            System.out.println();
+            
         }
-
-        matriz.printaMatriz(matriz);
-
-        Buscas busca = new Buscas();
+//        for(Grafo g: grafos){
+//            g.printaMatriz(g);
+//            System.out.println();
+//        }
+        //Buscas busca = new Buscas();
 //        Grafo grafo = new Grafo(6);
 //        
 //        grafo.insereArestaDiretivaMatriz(grafo, 0, 1);
@@ -52,7 +41,6 @@ public class Principal {
 //        grafo.insereArestaDiretivaMatriz(grafo, 3, 1);
 //        grafo.insereArestaDiretivaMatriz(grafo, 1, 4);
 //        grafo.printaMatriz(grafo);
-
 //        Grafo grafo = new Grafo();
 //
 //        Vertice camisa = new Vertice("Camisa");
