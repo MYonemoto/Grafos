@@ -19,19 +19,30 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        String arquivo = "HDGraph20_20.txt";
-        ArrayList<Grafo> grafos = Read.CarregaGrafosLista(arquivo);
-        System.out.println("grafos: " + grafos.size());
+//        Grafo grafo = new Grafo();
+//        grafo.insereVertice(grafo, new Vertice("1"));
+//        grafo.insereVertice(grafo, new Vertice("2"));
+//        grafo.insereVertice(grafo, new Vertice("3"));
+//
+//        Vertice v = Grafo.getKey(grafo, "1");
+//        Vertice v2 = Grafo.getKey(grafo, "2");
+//        Vertice v3 = Grafo.getKey(grafo, "3");
+//
+//        grafo.InsereArestaNaoDiretiva(grafo, v, new Aresta(v2));
+//        grafo.InsereArestaNaoDiretiva(grafo, v, new Aresta(v3));
+//        grafo.printaGrafo(grafo);
+//        
 
-        for (Grafo g : grafos) {
+        String arquivo = "HDGraph20_20.txt";
+        ArrayList<Grafo> grafos = Read.CarregaGrafosLista(Read.CarregaGrafosMatriz(arquivo));
+        System.out.println("grafos: " + grafos.size());
+        
+        
+        
+        for(Grafo g: grafos){
             g.printaGrafo(g);
             System.out.println();
-            
         }
-//        for(Grafo g: grafos){
-//            g.printaMatriz(g);
-//            System.out.println();
-//        }
         //Buscas busca = new Buscas();
 //        Grafo grafo = new Grafo(6);
 //        
@@ -40,8 +51,7 @@ public class Principal {
 //        grafo.insereArestaDiretivaMatriz(grafo, 2, 3);
 //        grafo.insereArestaDiretivaMatriz(grafo, 3, 1);
 //        grafo.insereArestaDiretivaMatriz(grafo, 1, 4);
-//        grafo.printaMatriz(grafo);
-//        Grafo grafo = new Grafo();
+//        
 //
 //        Vertice camisa = new Vertice("Camisa");
 //        Vertice gravata = new Vertice("Gravata");

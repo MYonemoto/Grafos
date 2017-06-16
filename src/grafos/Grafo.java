@@ -122,7 +122,27 @@ public class Grafo {
 
     }
 
-   
+   public static Vertice getKey(Grafo g, String nome){
+       Vertice vertice = null;
+       for(Vertice v: g.getMap().keySet()){
+            if(v.nome.equals(nome)){
+                vertice = v;
+            }
+        }
+       return vertice;
+   }
+   public boolean existeAdjascencia(Grafo grafo, Vertice origem, Vertice destino){
+       
+       if (grafo.getMap().containsKey(origem)) {
+            for (Aresta a : grafo.getMap().get(origem)) {
+                if (a.destino == destino) {
+                    return true;
+                }
+            }
+        }
+        
+       return false;
+   }
     
     public Map<Vertice, List<Aresta>> getMap() {
         return map;
