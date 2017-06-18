@@ -59,7 +59,8 @@ public class Buscas {
         }
     }
 
-    public static void IniciaBuscaProfundidade(Grafo grafo) {
+    public static boolean IniciaBuscaProfundidade(Grafo grafo) {
+        grafo.ComponentesConexas = 0;
         for (Vertice u : grafo.map.keySet()) {
             u.setCor("Branco");
             u.antecessor = null;
@@ -68,8 +69,13 @@ public class Buscas {
         for (Vertice u : grafo.map.keySet()) {
             if (u.cor.equals("Branco")) {
                 BuscaProfundidade(grafo, u);
+                grafo.ComponentesConexas++;
             }
         }
+        if(grafo.ComponentesConexas == 1){
+            return true;
+        }
+        return false;
     }
 
     public static void BuscaProfundidade(Grafo grafo, Vertice vertice) {

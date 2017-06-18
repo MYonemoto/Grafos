@@ -19,6 +19,7 @@ public class Vertice {
     Vertice antecessor;
     Integer tempoDescoberto;
     Integer tempoFinalizado;
+    boolean isVisit;
 
         
 
@@ -74,6 +75,14 @@ public class Vertice {
 
     public void setTempoFinalizado(Integer tempoFinalizado) {
         this.tempoFinalizado = tempoFinalizado;
+    }
+
+    public boolean isIsVisit() {
+        return isVisit;
+    }
+
+    public void setIsVisit(boolean isVisit) {
+        this.isVisit = isVisit;
     }
     
    

@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author mateus
+ * @author Geovani
  */
 public class Read {
 

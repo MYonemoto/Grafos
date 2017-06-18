@@ -18,7 +18,7 @@ import java.util.logging.Filter;
 
 /**
  *
- * @author a1602055
+ * @author geovani
  */
 public class Grafo {
 
@@ -26,6 +26,8 @@ public class Grafo {
     List<Vertice> filaBuscaLargura;
     int[][] matriz;
     boolean isCiclico;
+    Integer ComponentesConexas;
+    
 
     Integer tempo;
 
@@ -41,6 +43,7 @@ public class Grafo {
     public Grafo() {
 
         this.map = new LinkedHashMap<>();
+        
 
     }
 
@@ -62,7 +65,7 @@ public class Grafo {
 
     public void InsereArestaNaoDiretiva(Grafo grafo, Vertice verticeOrigem, Aresta aresta) {
         grafo.map.get(verticeOrigem).add(aresta);
-        grafo.map.get(aresta.destino).add(new Aresta(verticeOrigem));
+        grafo.map.get(aresta.destino).add(new Aresta(verticeOrigem, aresta.peso));
     }
 
     public void insereArestaDiretivaMatriz(Grafo grafo, int origem, int destino) {
@@ -96,7 +99,7 @@ public class Grafo {
         for (Vertice v : grafo.getMap().keySet()) {
             System.out.print("vertice : " + v.nome + "-->");
             for (Aresta ar : grafo.getMap().get(v)) {
-                System.out.print(ar.destino.nome + " ");
+                System.out.print(ar.destino.nome + "{" + ar.peso + "}  ");
             }
             System.out.println();
         }
@@ -167,5 +170,15 @@ public class Grafo {
     public void setIsCiclico(boolean isCiclico) {
         this.isCiclico = isCiclico;
     }
+
+    public int[][] getMatriz() {
+        return matriz;
+    }
+
+    public void setMatriz(int[][] matriz) {
+        this.matriz = matriz;
+    }
+    
+    
 
 }

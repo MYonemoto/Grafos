@@ -8,137 +8,110 @@ package grafos;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
 /**
  *
- * @author Mateus
+ * @author Geovani
  */
 public class Principal {
 
     public static void main(String[] args) {
 
-//        Grafo grafo = new Grafo();
-//        grafo.insereVertice(grafo, new Vertice("1"));
-//        grafo.insereVertice(grafo, new Vertice("2"));
-//        grafo.insereVertice(grafo, new Vertice("3"));
-//
-//        Vertice v = Grafo.getKey(grafo, "1");
-//        Vertice v2 = Grafo.getKey(grafo, "2");
-//        Vertice v3 = Grafo.getKey(grafo, "3");
-//
-//        grafo.InsereArestaNaoDiretiva(grafo, v, new Aresta(v2));
-//        grafo.InsereArestaNaoDiretiva(grafo, v, new Aresta(v3));
-//        grafo.printaGrafo(grafo);
-//        
-
-        String arquivo = "HDGraph20_20.txt";
+        
+        
+        String arquivo = "GROUP 1/HDGraph30_30.txt";
         ArrayList<Grafo> grafos = Read.CarregaGrafosLista(Read.CarregaGrafosMatriz(arquivo));
-        System.out.println("grafos: " + grafos.size());
-        
-        
-        
-        for(Grafo g: grafos){
-            g.printaGrafo(g);
-            System.out.println();
+
+        Integer i = 0;
+        for (Grafo g : grafos) {
+            i++;
+            System.out.println("\n\n#####     Arquivo  :  "+ arquivo);
+            System.out.println("#####    Grafo  :"  + i);
+            MVCA mvca = new MVCA();
+            mvca.Rotulos(g);
         }
-        //Buscas busca = new Buscas();
-//        Grafo grafo = new Grafo(6);
-//        
-//        grafo.insereArestaDiretivaMatriz(grafo, 0, 1);
-//        grafo.insereArestaDiretivaMatriz(grafo, 1, 2);
-//        grafo.insereArestaDiretivaMatriz(grafo, 2, 3);
-//        grafo.insereArestaDiretivaMatriz(grafo, 3, 1);
-//        grafo.insereArestaDiretivaMatriz(grafo, 1, 4);
-//        
-//
-//        Vertice camisa = new Vertice("Camisa");
-//        Vertice gravata = new Vertice("Gravata");
-//        Vertice paleto = new Vertice("Paleto");
-//        Vertice cinto = new Vertice("Cinto");
-//        Vertice relogio = new Vertice("Relogio");
-//        Vertice cueca = new Vertice("Cueca");
-//        Vertice calca = new Vertice("Calca");
-//        Vertice sapato = new Vertice("Sapato");
-//        Vertice meia = new Vertice("Meia");
-//
-//        grafo.insereVertice(grafo, camisa);
-//        grafo.insereVertice(grafo, gravata);
-//        grafo.insereVertice(grafo, paleto);
-//        grafo.insereVertice(grafo, cinto);
-//        grafo.insereVertice(grafo, relogio);
-//        grafo.insereVertice(grafo, cueca);
-//        grafo.insereVertice(grafo, calca);
-//        grafo.insereVertice(grafo, sapato);
-//        grafo.insereVertice(grafo, meia);
-//        grafo.insereVertice(grafo, camisa);
-//        grafo.insereVertice(grafo, gravata);
-//        grafo.insereVertice(grafo, paleto);
-//        grafo.insereVertice(grafo, cinto);
-//        grafo.insereVertice(grafo, relogio);
-//        grafo.insereVertice(grafo, cueca);
-//        grafo.insereVertice(grafo, calca);
-//        grafo.insereVertice(grafo, sapato);
-//        grafo.insereVertice(grafo, meia);
-//        grafo.InsereArestaDiretiva(grafo, camisa, new Aresta(gravata));
-//        grafo.InsereArestaDiretiva(grafo, camisa, new Aresta(cinto));
-//        grafo.InsereArestaDiretiva(grafo, cinto, new Aresta(camisa));
-//        grafo.InsereArestaDiretiva(grafo, gravata, new Aresta(paleto));
-//        grafo.InsereArestaDiretiva(grafo, calca, new Aresta(cinto));
-//        grafo.InsereArestaDiretiva(grafo, cueca, new Aresta(calca));
-//        grafo.InsereArestaDiretiva(grafo, cueca, new Aresta(sapato));
-//        grafo.InsereArestaDiretiva(grafo, cinto, new Aresta(paleto));
-//        grafo.InsereArestaDiretiva(grafo, meia, new Aresta(sapato));
-//        grafo.InsereArestaDiretiva(grafo, calca, new Aresta(sapato));
-//        grafo.InsereArestaDiretiva(grafo, paleto, new Aresta(camisa));
-////        grafo.InsereArestaNaoDiretiva(grafo, d, new Aresta(f));
-//        //qgrafo.InsereArestaNaoDiretiva(grafo, d, new Aresta(a));
-//        //grafo.InsereArestaNaoDiretiva(grafo, f, new Aresta(a));
-////        grafo.RemoveVertice(grafo, camisa);
-////        grafo.RemoveVertice(grafo, gravata);
-////        grafo.RemoveVertice(grafo, paleto);
-////        grafo.RemoveVertice(grafo, cinto);
-////        grafo.RemoveVertice(grafo, relogio);
-////        grafo.RemoveVertice(grafo, cueca);
-////        grafo.RemoveVertice(grafo, calca);
-////        grafo.RemoveVertice(grafo, sapato);
-////        grafo.RemoveVertice(grafo, meia);
-//        
-////        Vertice a = new Vertice("A");
-////        Vertice b = new Vertice("B");
-////        Vertice c = new Vertice("C");
-////        Vertice d = new Vertice("D");
-////        Vertice e = new Vertice("E");
-////        Vertice f = new Vertice("F");
-////        
-////        grafo.insereVertice(grafo, a);
-////        grafo.insereVertice(grafo, b);
-////        grafo.insereVertice(grafo, c);
-////        grafo.insereVertice(grafo, d);
-////        grafo.insereVertice(grafo, e);
-////        grafo.insereVertice(grafo, f);
-////        
-////        grafo.InsereArestaDiretiva(grafo, a, new Aresta (b));
-////        grafo.InsereArestaDiretiva(grafo, b, new Aresta (c));
-////        grafo.InsereArestaDiretiva(grafo, c, new Aresta (d));
-////        grafo.InsereArestaDiretiva(grafo, d, new Aresta (b));
-////        grafo.InsereArestaDiretiva(grafo, a, new Aresta (d));
-////        grafo.InsereArestaDiretiva(grafo, e, new Aresta (f));
-////        grafo.InsereArestaDiretiva(grafo, e, new Aresta (c));
-////        grafo.InsereArestaDiretiva(grafo, f, new Aresta (f));
-////        
-//        grafo.printaGrafo(grafo);
-////        System.out.println();
-////
-//    List<Vertice> lista = busca.OrdenacaoTopologica(grafo);
-//    if(lista != null){
-//    for (Vertice v : lista) {
-//            System.out.println("\nNome: " + v.nome + " Tempo: " + v.tempoDescoberto + " / " + v.tempoFinalizado);
-//        }
-//    }
-//        Buscas.IniciaBuscaProfundidade(grafo);
-//        Buscas.IniciaBuscaLargura(grafo, camisa);
-//        Buscas.BuscaLargura(grafo);
     }
+//        
+//        int[][] matriz = new int[8][8];
+//
+//        matriz[0][0] = -1;
+//        matriz[0][1] = 5;
+//        matriz[0][2] = 3;
+//        matriz[0][3] = -1;
+//        matriz[0][4] = -1;
+//        matriz[0][5] = -1;
+//        matriz[0][6] = -1;
+//        matriz[0][7] = 10;
+//
+//        matriz[1][0] = 5;
+//        matriz[1][1] = -1;
+//        matriz[1][2] = 5;
+//        matriz[1][3] = -1;
+//        matriz[1][4] = -1;
+//        matriz[1][5] = -1;
+//        matriz[1][6] = -1;
+//        matriz[1][7] = -1;
+//
+//        matriz[2][0] = 3;
+//        matriz[2][1] = 5;
+//        matriz[2][2] = -1;
+//        matriz[2][3] = 8;
+//        matriz[2][4] = 1;
+//        matriz[2][5] = 5;
+//        matriz[2][6] = 2;
+//        matriz[2][7] = 8;
+//
+//        matriz[3][0] = -1;
+//        matriz[3][1] = -1;
+//        matriz[3][2] = 8;
+//        matriz[3][3] = -1;
+//        matriz[3][4] = 8;
+//        matriz[3][5] = -1;
+//        matriz[3][6] = -1;
+//        matriz[3][7] = -1;
+//
+//        matriz[4][0] = -1;
+//        matriz[4][1] = -1;
+//        matriz[4][2] = 1;
+//        matriz[4][3] = 8;
+//        matriz[4][4] = -1;
+//        matriz[4][5] = 3;
+//        matriz[4][6] = -1;
+//        matriz[4][7] = -1;
+//
+//        matriz[5][0] = -1;
+//        matriz[5][1] = -1;
+//        matriz[5][2] = 5;
+//        matriz[5][3] = -1;
+//        matriz[5][4] = 3;
+//        matriz[5][5] = -1;
+//        matriz[5][6] = 10;
+//        matriz[5][7] = -1;
+//
+//        matriz[6][0] = -1;
+//        matriz[6][1] = -1;
+//        matriz[6][2] = 2;
+//        matriz[6][3] = -1;
+//        matriz[6][4] = -1;
+//        matriz[6][5] = 10;
+//        matriz[6][6] = -1;
+//        matriz[6][7] = 3;
+//
+//        matriz[7][0] = 10;
+//        matriz[7][1] = -1;
+//        matriz[7][2] = 8;
+//        matriz[7][3] = -1;
+//        matriz[7][4] = -1;
+//        matriz[7][5] = -1;
+//        matriz[7][6] = 3;
+//        matriz[7][7] = -1;
+//
+//        Grafo g1 = new Grafo(8);
+//        g1.setMatriz(matriz);
+//        ArrayList<Grafo> grafos = new ArrayList<>();
+//        grafos.add(g1);
+//        grafos = Read.CarregaGrafosLista(grafos);
 }
