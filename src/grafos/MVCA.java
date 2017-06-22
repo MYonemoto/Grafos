@@ -28,15 +28,12 @@ public class MVCA {
                 if (!destino.isVisit) {
                     rotulo.setNumAlcancaveis(rotulo.getNumAlcancaveis() + 1);
                 }
-//                if (!arvore.existeAdjascencia(arvore, origem, destino)) {
-//                    arvore.InsereArestaNaoDiretiva(arvore, origem, new Aresta(destino, aresta.peso));
-//
-//                }
-
+//               
             }
 
         }
         rotulos.sort(new ComparadorRotulos());
+
     }
 
     public void InsereArvore(Rotulo rotulo, Grafo arvore) {
@@ -53,9 +50,10 @@ public class MVCA {
 
     }
 
-    public void Rotulos( Grafo grafo) {
+    public void Rotulos(Grafo grafo) {
         ArrayList<Rotulo> rotulos = getRotulos(grafo);
-        Integer numRotulos = 0;
+        ArrayList<Rotulo> rotulosUsados = new ArrayList<>();
+
         Grafo arvore = new Grafo();
         for (Integer i = 0; i < grafo.map.size(); i++) {
             Vertice v = new Vertice(i.toString());
@@ -63,29 +61,23 @@ public class MVCA {
             arvore.insereVertice(arvore, v);
 
         }
-        while (!Buscas.IniciaBuscaProfundidade(arvore)) {
-
-//            for (Rotulo ro : rotulos) {
-//                System.out.println("rotulo: " + ro.nome + "{" + ro.numAlcancaveis + "}");
-//            }
-//            System.out.println("");
+        arvore.rotulos = 0;
+        while (!Grafo.isConexo(arvore)) {
 
             CalculaVerticeAlcancaveis(rotulos, arvore);
-            InsereArvore(rotulos.remove(0), arvore);
-            numRotulos++;
-//            for (Rotulo ro : rotulos) {
-//                System.out.println("rotulo: " + ro.nome + "{" + ro.numAlcancaveis + "}");
-//            }
-           
-            
-
-         
-//        
+            Rotulo rot = rotulos.remove(0);
+            rotulosUsados.add(rot);
+            InsereArvore(rot, arvore);
+            arvore.rotulos++;
         }
-        System.out.println("numero de rotulos: "+ numRotulos);
-        arvore.printaGrafo(arvore);
-
-        System.out.println("Componentes arvore: " + arvore.ComponentesConexas);
+        
+        System.out.println("");
+        for (Rotulo ro : rotulosUsados) {
+            System.out.print("   " + ro.nome);
+        }
+        System.out.println("");
+        grafo.rotulos = arvore.rotulos;
+        
 
     }
 

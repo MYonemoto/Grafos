@@ -27,7 +27,7 @@ public class Grafo {
     int[][] matriz;
     boolean isCiclico;
     Integer ComponentesConexas;
-    
+    Integer rotulos;
 
     Integer tempo;
 
@@ -43,7 +43,6 @@ public class Grafo {
     public Grafo() {
 
         this.map = new LinkedHashMap<>();
-        
 
     }
 
@@ -52,6 +51,14 @@ public class Grafo {
 
         grafo.map.put(vertice, arestas);
 
+    }
+
+    public static boolean isConexo(Grafo grafo) {
+        Buscas.IniciaBuscaProfundidade(grafo);
+        if (grafo.ComponentesConexas.equals(1)) {
+            return true;
+        }
+        return false;
     }
 
     public void RemoveVertice(Grafo grafo, Vertice vertice) {
@@ -92,8 +99,6 @@ public class Grafo {
             RemoveArestaDiretiva(grafo, v, destino);
         }
     }
-    
-   
 
     public void printaGrafo(Grafo grafo) {
         for (Vertice v : grafo.getMap().keySet()) {
@@ -125,28 +130,29 @@ public class Grafo {
 
     }
 
-   public static Vertice getKey(Grafo g, String nome){
-       Vertice vertice = null;
-       for(Vertice v: g.getMap().keySet()){
-            if(v.nome.equals(nome)){
+    public static Vertice getKey(Grafo g, String nome) {
+        Vertice vertice = null;
+        for (Vertice v : g.getMap().keySet()) {
+            if (v.nome.equals(nome)) {
                 vertice = v;
             }
         }
-       return vertice;
-   }
-   public boolean existeAdjascencia(Grafo grafo, Vertice origem, Vertice destino){
-       
-       if (grafo.getMap().containsKey(origem)) {
+        return vertice;
+    }
+
+    public boolean existeAdjascencia(Grafo grafo, Vertice origem, Vertice destino) {
+
+        if (grafo.getMap().containsKey(origem)) {
             for (Aresta a : grafo.getMap().get(origem)) {
                 if (a.destino == destino) {
                     return true;
                 }
             }
         }
-        
-       return false;
-   }
-    
+
+        return false;
+    }
+
     public Map<Vertice, List<Aresta>> getMap() {
         return map;
     }
@@ -178,7 +184,5 @@ public class Grafo {
     public void setMatriz(int[][] matriz) {
         this.matriz = matriz;
     }
-    
-    
 
 }

@@ -87,7 +87,6 @@ public class Read {
                     }
                 }
             }
-
             grafos.add(g);
         }
 

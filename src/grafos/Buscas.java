@@ -58,8 +58,21 @@ public class Buscas {
             System.out.println("pai  " + u.nome + "  cor: " + u.cor);
         }
     }
+    
+    public static void removeSozinho(Grafo grafo){
+        Vertice x = null;
+            for(Vertice v: grafo.map.keySet()){
+                Integer n = 0;
+                if(n.equals(grafo.getMap().get(v).size())){
+                    x = v;
+                }
+                 
+            }
+          
+            grafo.getMap().remove(x);
+    }
 
-    public static boolean IniciaBuscaProfundidade(Grafo grafo) {
+    public static void IniciaBuscaProfundidade(Grafo grafo) {
         grafo.ComponentesConexas = 0;
         for (Vertice u : grafo.map.keySet()) {
             u.setCor("Branco");
@@ -72,11 +85,12 @@ public class Buscas {
                 grafo.ComponentesConexas++;
             }
         }
-        if(grafo.ComponentesConexas == 1){
-            return true;
-        }
-        return false;
+        
+        
+        
     }
+    
+    
 
     public static void BuscaProfundidade(Grafo grafo, Vertice vertice) {
         grafo.tempo += 1;
